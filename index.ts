@@ -5,11 +5,12 @@ const input4: string = "101*011*1*1*01*0";
 const input5: string = "101*011*1*1*01*00*1";
 
 // Generates all possible binary numbers that will fill the permutation.
-const generateBinaryMutations = (input: string) => {
+// I was inspired by this https://levelup.gitconnected.com/find-all-permutations-of-a-string-in-javascript-af41bfe072d2
+const generateBinaryMutations = (input: string): string[] => {
     const regPermutations = new RegExp(/\*/g);
     const lengthMaxPermutations = input.match(regPermutations).length;
-    const numbersPermuted = [];
-    const indicesSwap = [];
+    const numbersPermuted: string[] = [];
+    const indicesSwap: number[] = [];
 
     // I take out all the indices that are going to mutate from storing
     let resultRegex;
